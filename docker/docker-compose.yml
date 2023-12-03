@@ -1,0 +1,28 @@
+version: '3.1'
+
+services:
+  postgres_server:
+    image: postgres
+    container_name: postgres_server
+    environment:
+      POSTGRES_PASSWORD: your_password  # 设置你的密码
+      POSTGRES_USER: root          # 设置你的用户名
+    volumes:
+      - D:/software/postgresr:/var/lib/postgresql/data # Windows路径映射
+    ports:
+      - "5432:5432" # 映射端口到宿主机
+    networks:
+      - postgres-network
+
+  postgres_client:
+    image: postgres
+    container_name: postgres_client
+    depends_on:
+      - postgres_server
+    command: ["sleep", "infinity"] # 保持客户端容器运行
+    networks:
+      - postgres-network
+
+networks:
+  postgres-network:
+    driver: bridge

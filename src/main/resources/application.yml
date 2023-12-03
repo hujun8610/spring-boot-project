@@ -5,12 +5,12 @@ server:
 
 spring:
   application:
-    name: spring-boot-best-practices
+    name: spring-boot-template-project
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/spring_boot_best_practices
-    username: postgres
-    password: password
+    url: jdbc:postgresql://localhost:5432/log
+    username: root
+    password: your_password
     driver-class-name: org.postgresql.Driver
 
   jpa:
