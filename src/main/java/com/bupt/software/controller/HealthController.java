@@ -14,6 +14,11 @@ public class HealthController {
         return "OK";
     }
 
+    @RequestMapping("/test")
+    public String test() {
+        return "test";
+    }
+
 
 
 }
